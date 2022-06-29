@@ -39,6 +39,45 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// router.get('/comment', async (req, res) => {
+//   try {
+//     const postData = await Post.findOne({
+//       where: {
+//         id: req.params.id
+//       },
+//       attributes: ['id', 'content', 'title', 'created_at'],
+//       include: [
+//         {
+//           model: Comment,
+//           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+//           include: {
+//             model: User,
+//             attributes: ['username'],
+//           },
+//         },
+//         {
+//           model: User,
+//           attributes: ['username'],
+//         },
+//       ],
+//     });
+//     if (!postData) {
+//       res.status(404).json({ message: 'No post found'});
+//       return;
+//     }
+//     const post = postData.get({ plain: true });
+
+//     res.render('comment', {
+//       post,
+//       logged_in: req.session.logged_in,
+//       username: req.session.username,
+//     });
+//   } catch (e) {
+//     res.status(500).json(e);
+//   }
+// });
+
+
 router.get('/create/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -67,7 +106,6 @@ router.get('/create/', withAuth, async (req, res) => {
     res.render('create-post', {
       posts,
       logged_in: true,
-      username: req.session.username,
     });
   } catch (e) {
     res.status(500).json(e);
@@ -107,7 +145,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     res.render('edit-post', {
       post,
       logged_in: true,
-      username: req.session.username,
     });
   } catch (e) {
     res.status(500).json(e);

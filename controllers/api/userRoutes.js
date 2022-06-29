@@ -48,12 +48,16 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    });
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
       req.session.logged_in = true;
-      res.status(201).json({ message: 'User created succesfully.'});
+      res.status(200).json(userData);
     });
   } catch (e) {
     res.status(400).json(e);
@@ -63,7 +67,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
       res
@@ -95,17 +99,12 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
-  try {
-    if (req.session.logged_in) {
-      // eslint-disable-next-line no-unused-vars
-      const userData = await req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  } catch (e) {
-    res.status(400).json(e);
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 

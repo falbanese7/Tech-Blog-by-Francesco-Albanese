@@ -10,7 +10,7 @@
 </div>
     {{#each posts as |post|}}
         {{> postdata post}}
-        
+        <div class="d-flex justify-content-start p-2">
             <a href="/dashboard/edit/{{post.id}}"><button class="btn btn-primary">Edit post</button></a>
         </div>
     {{/each}}
