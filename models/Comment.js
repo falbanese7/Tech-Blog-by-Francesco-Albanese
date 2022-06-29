@@ -12,13 +12,17 @@ Comment.init(
       autoIncrement: true,
     },
     comment_text: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'comment',
+        model: 'post',
         key: 'id'
       }
     },

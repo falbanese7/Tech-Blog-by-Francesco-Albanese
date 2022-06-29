@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Definitive Tech Blog</title>
     
-    <link rel="stylesheet" href="/css/jass.css">
+    {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -24,13 +24,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
+        {{#if logged_in}}
         <li class="nav-item">
-          {{#if logged_in}}
+          <a class="nav-link" href="/dashboard/">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard/create">Create post</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" id="logout" href="/">Log Out</a>
           {{else}}
           <a class="nav-link" href="/login">Login</a>
-          {{/if}}
         </li>
+        {{/if}}
       </ul>
     </div>
   </div>
@@ -52,9 +58,6 @@
 {{#if logged_in}}
 <script src="/js/logout.js"></script>
 {{/if}}
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </body>
 </html>

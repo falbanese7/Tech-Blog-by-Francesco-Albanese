@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
       attributes: ['id', 'title', 'content', 'created_at'],
       order: [['created_at', 'DESC']],
       include: [
-        { model: User, attributes: ['username'] },
         {
           model: Comment,
           attributes: [
@@ -20,9 +19,10 @@ router.get('/', async (req, res) => {
           ],
           include: { model: User, attributes: ['username'] },
         },
+        { model: User, attributes: ['username'] },
       ],
     });
-    res.status(200).json(postData.reverse());
+    res.status(200).json(postData);
   } catch (e) {
     res.status(400).json(e);
   }
@@ -35,7 +35,6 @@ router.get('/:id', async (req, res) => {
       attributes: ['id', 'title', 'content', 'created_at'],
       order: [['created_at', 'DESC']],
       include: [
-        { model: User, attributes: ['username'] },
         {
           model: Comment,
           attributes: [
@@ -47,6 +46,7 @@ router.get('/:id', async (req, res) => {
           ],
           include: { model: User, attributes: ['username'] },
         },
+        { model: User, attributes: ['username'] },
       ],
     });
     if (!postData) {
@@ -54,7 +54,7 @@ router.get('/:id', async (req, res) => {
       return;
     }
 
-    res.status(200).json(postData.reverse());
+    res.status(200).json(postData);
   } catch (e) {
     res.status(400).json(e);
   }

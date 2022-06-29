@@ -86,7 +86,7 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-router.get('/post-comments', async (req, res) => {
+router.get('/comment', async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: {
@@ -114,7 +114,7 @@ router.get('/post-comments', async (req, res) => {
     }
     const post = postData.get({ plain: true });
 
-    res.render('post-comments', {
+    res.render('comment', {
       post,
       logged_in: req.session.logged_in,
       username: req.session.username,

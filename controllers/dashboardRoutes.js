@@ -39,6 +39,41 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/create/', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      attributes: ['id', 'content', 'title', 'created_at'],
+      include: [
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username'],
+          },
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    res.render('create-post', {
+      posts,
+      logged_in: true,
+      username: req.session.username,
+    });
+  } catch (e) {
+    res.status(500).json(e);
+  }
+});
+
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({

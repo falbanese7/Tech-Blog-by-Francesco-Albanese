@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -10,7 +9,7 @@ router.get('/', async (req, res) => {
       res.status(404).json({ message: 'No comments to show.' });
       return;
     }
-    res.status(204).json(commData);
+    res.status(200).json(commData);
   } catch (e) {
     res.status(500).json(e);
   }
@@ -25,7 +24,7 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'Comment does not exist' });
       return;
     }
-    res.status(204).json(commData);
+    res.status(200).json(commData);
   } catch (e) {
     res.status(500).json(e);
   }
@@ -38,7 +37,7 @@ router.post('/', withAuth, async (req, res) => {
       post_id: req.body.post_id,
       user_id: req.session.user_id
     });
-    res.status(201).json(newComm);
+    res.status(200).json(newComm);
   } catch (e) {
     res.status(400).json(e);
   }

@@ -59,7 +59,7 @@
     font-size: 1.3rem;
     text-decoration: none;
     padding: 6px 5px;
-    width: 100%;
+    width: auto;
     display: block;
     margin: 5px 0;
     border-radius: var(--border-radius);
@@ -216,7 +216,7 @@
   }
   
   .form-input {
-    width: 100%;
+    width: auto;
     padding: 3%;
     margin: 5px 0;
     font-size: 1.2rem;
@@ -224,6 +224,10 @@
     border-radius: var(--border-radius);
   }
   
+  .back-to-dash {
+    text-align: start;
+  }
+
   .min-100-vh {
     min-height: 100vh;
   }

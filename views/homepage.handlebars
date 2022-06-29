@@ -1,8 +1,10 @@
 {{#each posts as |post|}}
 
-{{> postdata post }}
+{{> postdata }}
 </div>
 
 {{else}}
-<h6 class="link">There are currently no posts.</h6>
+<div class="d-flex justify-content-center">
+    <h6 class="link text-center">There are currently no posts.</h6>
+</div>
 {{/each}}
