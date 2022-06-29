@@ -44,6 +44,10 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
   res.render('signup');
 });
 
@@ -114,7 +118,7 @@ router.get('/post-comments', async (req, res) => {
     }
     const post = postData.get({ plain: true });
 
-    res.render('comment', {
+    res.render('post-comments', {
       post,
       logged_in: req.session.logged_in,
       username: req.session.username,

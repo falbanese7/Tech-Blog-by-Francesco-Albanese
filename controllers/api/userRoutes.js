@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+// const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -45,6 +46,21 @@ router.get('/:id', async (req, res) => {
     res.status(400).json(e);
   }
 });
+
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.username = userData.username;
+      req.session.logged_in = true;
+      res.status(201).json({ message: 'User created succesfully.'});
+    });
+  } catch (e) {
+    res.status(400).json(e);
+  }
+});
+
 
 router.post('/login', async (req, res) => {
   try {
