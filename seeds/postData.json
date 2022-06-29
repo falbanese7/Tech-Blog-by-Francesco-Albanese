@@ -1,17 +1,17 @@
 [
-    {
-      "title": "Harold's Big Tech Day",
-      "content": "Harold loves his new tech",
-      "user_id": "1"
-    },
-    {
-      "title": "Big Jamboree",
-      "content": "There's a lot of stuff at the jamboree",
-      "user_id": "1"
-    },
-    {
-      "title": "An Honest Day's Work",
-      "content": "It ain't much, but it's an honest day's work",
-      "user_id": "2"
-    }
-  ]
+  {
+    "title": "Harold's Big Tech Day",
+    "content": "Harold loves his new tech",
+    "user_id": "1"
+  },
+  {
+    "title": "Big Jamboree",
+    "content": "There's a lot of stuff at the jamboree",
+    "user_id": "3"
+  },
+  {
+    "title": "An Honest Day's Work",
+    "content": "It ain't much, but it's an honest day's work",
+    "user_id": "2"
+  }
+]

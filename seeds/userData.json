@@ -1,28 +1,27 @@
 [
-    {
-      "username": "Mario",
-      "email": "mario@hotmail.com",
-      "password": "password12345"
-    },
-    {
-      "username": "Sonic",
-      "email": "sonic@gmail.com",
-      "password": "password12345"
-    },
-    {
-      "username": "Link",
-      "email": "link@aol.com",
-      "password": "password12345"
-    },
-    {
-      "username": "Tidus",
-      "email": "tidus@fairpoint.com",
-      "password": "password12345"
-    },
-    {
-      "username": "Ash",
-      "email": "ash@gmail.com",
-      "password": "password12345"
-    }
-  ]
-  
+  {
+    "username": "Mario",
+    "email": "mario@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "username": "Sonic",
+    "email": "sonic@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "username": "Link",
+    "email": "link@aol.com",
+    "password": "password12345"
+  },
+  {
+    "username": "Tidus",
+    "email": "tidus@fairpoint.com",
+    "password": "password12345"
+  },
+  {
+    "username": "Ash",
+    "email": "ash@gmail.com",
+    "password": "password12345"
+  }
+]
