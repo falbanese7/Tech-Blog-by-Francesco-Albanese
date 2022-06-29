@@ -8,7 +8,7 @@
 
 This repository contains the code for a CMS-style blog site, where developers can publish their blog posts and comment on other developers’ posts. This website follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
-![Tech Blog Dashboard](./Develop/images/Screen%20Shot%202022-06-17%20at%205.37.56%20AM.png)
+![Tech Blog Dashboard]()
 
 Live Site: https://shielded-escarpment-92224.herokuapp.com/
 
