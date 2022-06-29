@@ -34,10 +34,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComm = await Comment.create({
-      ...req.body,
-      user_id: req.body.user_id
+      comment_text: req.body.comment_text,
+      post_id: req.body.post_id,
+      user_id: req.session.user_id
     });
-    res.status(204).json(newComm);
+    res.status(201).json(newComm);
   } catch (e) {
     res.status(400).json(e);
   }
@@ -75,7 +76,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!commData) {
-      res.status(404).json({ message: 'Comment not found!' });
+      res.status(404).json({ message: 'Comment not found' });
       return;
     }
 

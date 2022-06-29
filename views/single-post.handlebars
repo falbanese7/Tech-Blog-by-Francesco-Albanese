@@ -1,18 +1,14 @@
-{{>postdata post}}
+{{> postdata post}}
 {{#if logged_in}}
-<div class="card">
-    <h3 class="card-header">Create New Post</h3>
-    <form class="card-body comment-form" id="comment-form">
-        <label for="post-title" class="form-label">Title</label>
-        <input type="text" id="post-title" name="post-title" class="form-input" />
-
-
-        <label class="form-label" for="content">Comment</label>
-        <input id="comment" name="comment-body" class="form-input" />
-
-        <button type="submit" class="btn">Submit</button>
-    </form>
-</div>
+  <div class="form-floating">
+    <textarea class="form-control" name="comment-body" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+    <label for="floatingTextarea2">Comments</label>
+  </div>
+  <div>
+    <button class="btn comment-btn" type="submit">Add a Comment</button>
+  </div>
+  
+</form>
 {{/if}}
 
 {{> comment post.comment}}

@@ -63,10 +63,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
-      ...req.body,
+      title: req.body.title,
+      content: req.body.content,
       user_id: req.body.user_id
     });
-    res.status(204).json(newPost);
+    res.status(201).json(newPost);
   } catch (e) {
     res.status(400).json(e);
   }
