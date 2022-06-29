@@ -1,7 +1,10 @@
 module.exports = {
   format_date: (date) => {
-    // Format date as MM/DD/YYYY
-    return date.toLocaleDateString();
+    // Using JavaScript Date methods, we get and format the month, date, and year
+    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
+      // We add five years to the 'year' value to calculate the end date
+      new Date(date).getFullYear()
+    }`;
   },
   format_amount: (amount) => {
     // format large numbers with commas

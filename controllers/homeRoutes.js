@@ -114,7 +114,7 @@ router.get('/post-comments', async (req, res) => {
     }
     const post = postData.get({ plain: true });
 
-    res.render('post-comments', {
+    res.render('comment', {
       post,
       logged_in: req.session.logged_in,
       username: req.session.username,
