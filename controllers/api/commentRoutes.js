@@ -31,15 +31,17 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', withAuth, async (req, res) => {
-  try {
-    const newComm = await Comment.create({
-      ...req.body,
-      user_id: req.session.user_id
-    });
-    console.log(newComm);
-    res.status(201).json(newComm);
-  } catch (e) {
-    res.status(400).json(e);
+  if (req.session) {
+    try {
+      const newComm = await Comment.create({
+        ...req.body,
+        user_id: req.session.user_id
+      });
+      console.log(newComm);
+      res.status(201).json(newComm);
+    } catch (e) {
+      res.status(400).json(e);
+    }
   }
 });
 

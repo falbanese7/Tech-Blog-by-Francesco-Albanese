@@ -6,14 +6,12 @@
     </div>
   </header>
 
-    <div class="card-content">
-        <div class="content p-3">
-            {{content}}
+<div class="card-content">
+    <div class="content p-3">
+        {{content}}
+    </div>
+        <div class="d-flex justify-content-end p-2 text-right text">
+            <b> {{user.username}} </b>| {{format_date created_at}} |  <a href="/post/{{id}}"> {{comments.length}} {{format_plural " Comment" comments.length}} </a>
         </div>
-            <div class="d-flex justify-content-end p-2 text-right text">
-                <b> {{user.username}} </b>| {{format_date created_at}} |  <a href="/post/{{id}}"> {{comments.length}} {{format_plural " Comment" comments.length}} </a>
-            </div>
-    
     </div>
 </div>
-

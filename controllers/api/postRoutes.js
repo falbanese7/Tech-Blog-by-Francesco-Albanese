@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
       attributes: ['id', 'title', 'content', 'created_at'],
-      order: [['created_at', 'DESC']],
+      order: [['created_at', 'ASC']],
       include: [
         {
           model: Comment,
@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
         { model: User, attributes: ['username'] },
       ],
     });
+    console.log(postData);
     res.status(200).json(postData);
   } catch (e) {
     res.status(400).json(e);
@@ -33,7 +34,7 @@ router.get('/:id', async (req, res) => {
     const postData = await Post.findOne({
       where: { id: req.params.id },
       attributes: ['id', 'title', 'content', 'created_at'],
-      order: [['created_at', 'DESC']],
+      order: [['created_at', 'ASC']],
       include: [
         {
           model: Comment,
