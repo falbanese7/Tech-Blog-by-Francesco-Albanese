@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -151,8 +149,5 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/new', (req, res) => {
-  res.render('new-post', { username: req.session.username });
-});
 
 module.exports = router;
