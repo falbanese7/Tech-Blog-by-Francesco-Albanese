@@ -10,8 +10,9 @@
         <div class="content p-3">
             {{content}}
         </div>
-            <section class="d-flex justify-content-end p-2 text-right">
-                <b> {{user.username}} </b>| {{format_date created_at}} |  <a href="/post/{{id}}"> {{comment.length}} {{format_plural " Comment" comment.length}} </a>
-            </section>
+            <div class="d-flex justify-content-end p-2 text-right">
+                <b> {{user.username}} </b>| {{ format_date created_at }} |  <a href="/post/{{id}}"> {{comment.length}} {{format_plural " Comment" comment.length}} </a>
+            </div>
     
     </div>
+</div>

@@ -4,16 +4,17 @@
 <form class="comment-form">
   <div class="form-floating">
     <textarea class="form-control" name="comment-body" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-    <label for="floatingTextarea2">Add comment</label>
+    <label for="floatingTextarea2">Leave a comment</label>
   </div>
   <div class="d-flex justify-content-center p-2">
     <button class="btn btn-primary comment-btn" type="submit">Add a Comment</button>
   </div>
   
 </form>
-
+{{/if}}
 
 {{> comment post.comment}}
 
+{{#if logged_in}}
 <script src="/js/comment.js"></script>
 {{/if}}

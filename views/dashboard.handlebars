@@ -9,10 +9,12 @@
     </div>
 </div>
     {{#each posts as |post|}}
+    <div class="card">
         {{> postdata post}}
-        <div class="d-flex justify-content-start p-2">
+        <div class="d-flex justify-content-start m-3">
             <a href="/dashboard/edit/{{post.id}}"><button class="btn btn-primary">Edit post</button></a>
         </div>
+    </div>
     {{/each}}
 
 {{else}}
